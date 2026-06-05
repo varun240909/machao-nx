@@ -13,7 +13,7 @@ export default function LocationsPage() {
 
       <header className="header">
         <Link href="/">
-          <img src="/machao-nx-transeparent.png" alt="Machao NX" className="logo" />
+          <img src="https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png" alt="Machao NX" className="logo" />
         </Link>
         <nav>
           <Link href="/menu">Menu</Link>
@@ -170,7 +170,7 @@ export default function LocationsPage() {
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <a
-                  href="https://wa.me/917710805081"
+                  href="https://wa.me/918879701012"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-cta"
@@ -190,7 +190,7 @@ export default function LocationsPage() {
                   WhatsApp Us
                 </a>
                 <a
-                  href="tel:+917710805081"
+                  href="tel:+918879701012"
                   className="btn-cta"
                   style={{
                     display: "flex",
@@ -202,7 +202,22 @@ export default function LocationsPage() {
                     justifyContent: "center",
                   }}
                 >
-                  📞 +91 77108 05081
+                  📞 +91 88797 01012
+                </a>
+                <a
+                  href="tel:+918879701014"
+                  className="btn-cta"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "white",
+                    color: "var(--dark)",
+                    textDecoration: "none",
+                    justifyContent: "center",
+                  }}
+                >
+                  📞 +91 88797 01014
                 </a>
               </div>
             </div>

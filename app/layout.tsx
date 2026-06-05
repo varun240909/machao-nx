@@ -45,7 +45,7 @@ export const metadata: Metadata = {
       "Noodles, biryani, chicken starters & more. Indian flavors crafted to perfection. Fresh every day — order on WhatsApp.",
     images: [
       {
-        url: "/hero-image.png",
+        url: "https://res.cloudinary.com/dozdgvgbt/image/upload/v1780659351/ChatGPT_Image_Jun_5_2026_04_59_24_PM_dvyx1a.png",
         width: 1200,
         height: 630,
         alt: "Machao NX — Indian Flavors, Crafted to Perfection",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "Machao NX | Best Chinese Food in Dahisar, Mumbai",
     description:
       "Noodles, biryani, chicken starters & more. Fresh every day — order on WhatsApp.",
-    images: ["/hero-image.png"],
+    images: ["https://res.cloudinary.com/dozdgvgbt/image/upload/v1780659351/ChatGPT_Image_Jun_5_2026_04_59_24_PM_dvyx1a.png"],
   },
 
   robots: {
@@ -75,8 +75,8 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: [{ url: "/machao-nx-transeparent.png" }],
-    apple: [{ url: "/machao-nx-transeparent.png" }],
+    icon: [{ url: "https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png" }],
+    apple: [{ url: "https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png" }],
   },
 
   category: "restaurant",

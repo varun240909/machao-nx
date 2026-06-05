@@ -1,6 +1,6 @@
 import type { MenuItem } from "@/data/menu"
 
-const WA_NUMBER = "917710805081"
+const WA_NUMBER = "918879701012"
 
 interface MenuCardProps {
   item: MenuItem
@@ -18,7 +18,7 @@ export default function MenuCard({ item, categoryEmoji, accentColor }: MenuCardP
         <span className={`menu-tag band-${item.tagColor ?? "primary"}`}>{item.tag}</span>
       )}
       <div className={`menu-card-band band-${accentColor}`}>
-        <img src="/machao-nx-transeparent.png" alt="Machao NX" className="menu-card-logo" />
+        <img src="https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png" alt="Machao NX" className="menu-card-logo" />
       </div>
       <div className="menu-card-body">
         <div

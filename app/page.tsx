@@ -1,19 +1,58 @@
 import Link from "next/link"
-import { featuredItems } from "@/data/menu"
+import { featuredItems as staticFeatured } from "@/data/menu"
 import MenuCard from "@/components/menu/MenuCard"
 
-export default function Home() {
+export const revalidate = 60
+
+async function getFeaturedItems() {
+  try {
+    const { connectDB } = await import("@/lib/db")
+    const { MenuItemModel } = await import("@/lib/models/MenuItem")
+    const { CategoryModel } = await import("@/lib/models/Category")
+
+    await connectDB()
+    const [items, cats] = await Promise.all([
+      MenuItemModel.find({ isFeatured: true }).lean(),
+      CategoryModel.find().lean(),
+    ])
+
+    if (!items.length) return staticFeatured
+
+    const catMap = new Map(cats.map((c: any) => [c.id, c]))
+    return items.slice(0, 3).map((item: any) => {
+      const cat = catMap.get(item.categoryId) as any
+      return {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        tag: item.tag,
+        tagColor: item.tagColor,
+        description: item.description,
+        isFeatured: item.isFeatured,
+        isVeg: item.isVeg,
+        imageUrl: item.imageUrl,
+        categoryEmoji: cat?.emoji ?? "🍜",
+        accentColor: cat?.accentColor ?? "primary",
+      }
+    })
+  } catch {
+    return staticFeatured
+  }
+}
+
+export default async function Home() {
+  const featuredItems = await getFeaturedItems()
   return (
     <>
       <div className="grain-overlay" />
 
       <header className="header">
-        <img src="/machao-nx-transeparent.png" alt="Machao NX" className="logo" />
+        <img src="https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png" alt="Machao NX" className="logo" />
         <nav>
           <Link href="/menu">Menu</Link>
           <Link href="/locations">Locations</Link>
         </nav>
-        <a href="tel:+917710805081" className="btn-cta" style={{ textDecoration: "none" }}>Book a Table</a>
+        <a href="tel:+918879701012" className="btn-cta" style={{ textDecoration: "none" }}>Book a Table</a>
       </header>
 
       <main>
@@ -38,6 +77,11 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-img">
+            <img
+              src="https://res.cloudinary.com/dozdgvgbt/image/upload/v1780659351/ChatGPT_Image_Jun_5_2026_04_59_24_PM_dvyx1a.png"
+              alt="Machao NX food"
+              className="hero-img-photo"
+            />
             <div className="sticker">
               FRESH AF
               <br />
@@ -114,7 +158,7 @@ export default function Home() {
 
       <footer>
         <div>
-          <img src="/machao-nx-transeparent.png" alt="Machao NX" className="footer-logo" />
+          <img src="https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png" alt="Machao NX" className="footer-logo" />
           <p style={{ color: "#666", lineHeight: 1.6 }}>
             Bold flavors, raw energy, no filters. Since day one.
           </p>
@@ -155,7 +199,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <span>© 2026 MACHAO NX</span>
-          <a href="https://github.com/VarunSingh19" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>BY VARUNSINGH19 ↗</a>
+          <a href="https://primusoftware.com" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>POWERED BY PRIMUSOFTWARE.COM ↗</a>
         </div>
       </footer>
     </>
