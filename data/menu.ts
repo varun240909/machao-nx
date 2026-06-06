@@ -7,6 +7,7 @@ export interface MenuItem {
   description?: string
   isFeatured?: boolean
   isVeg?: boolean
+  imageUrl?: string
 }
 
 export interface MenuCategory {

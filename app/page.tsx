@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { featuredItems as staticFeatured } from "@/data/menu"
 import MenuCard from "@/components/menu/MenuCard"
+import OrderNowButton from "@/components/OrderNowButton"
 
 export const revalidate = 60
 
@@ -55,7 +56,10 @@ export default async function Home() {
           <Link href="/menu">Menu</Link>
           <Link href="/locations">Locations</Link>
         </nav>
-        <a href="tel:+918879701012" className="btn-cta" style={{ textDecoration: "none" }}>Book a Table</a>
+        <a href="tel:+918879701012" className="btn-cta" style={{ textDecoration: "none" }}>
+          <span className="book-table-label">Book a Table</span>
+          <span className="book-table-icon">📞</span>
+        </a>
       </header>
 
       <main>
@@ -71,9 +75,7 @@ export default async function Home() {
               vibers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
-              <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }}>
-                Order Now
-              </button>
+              <OrderNowButton />
               <Link href="/menu" className="btn-cta" style={{ background: "white" }}>
                 View Menu
               </Link>

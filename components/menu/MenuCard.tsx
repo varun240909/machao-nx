@@ -17,8 +17,20 @@ export default function MenuCard({ item, categoryEmoji, accentColor }: MenuCardP
       {item.tag && (
         <span className={`menu-tag band-${item.tagColor ?? "primary"}`}>{item.tag}</span>
       )}
-      <div className={`menu-card-band band-${accentColor}`}>
-        <img src="https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png" alt="Machao NX" className="menu-card-logo" />
+      <div className={`menu-card-band band-${accentColor}${item.imageUrl ? " has-photo" : ""}`}>
+        {item.imageUrl ? (
+          <img
+            src={item.imageUrl}
+            alt={item.name}
+            className="menu-card-photo"
+          />
+        ) : (
+          <img
+            src="https://res.cloudinary.com/dozdgvgbt/image/upload/q_auto/f_auto/v1780657521/ChatGPT_Image_Jun_5__2026__04_29_05_PM-removebg-preview-Photoroom_sqsmdy.png"
+            alt="Machao NX"
+            className="menu-card-logo"
+          />
+        )}
       </div>
       <div className="menu-card-body">
         <div

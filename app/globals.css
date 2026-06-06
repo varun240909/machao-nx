@@ -136,14 +136,34 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Hide CTA button in header on mobile — nav links are enough */
+/* Book a Table: icon on mobile, full text on desktop */
 header .btn-cta {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
 }
 
 @media (min-width: 768px) {
   header .btn-cta {
-    display: inline-flex;
+    padding: 12px 24px;
+  }
+}
+
+.book-table-label {
+  display: none;
+}
+
+.book-table-icon {
+  display: inline;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .book-table-label {
+    display: inline;
+  }
+  .book-table-icon {
+    display: none;
   }
 }
 
@@ -1021,6 +1041,20 @@ html {
   .menu-card-band {
     height: 110px;
   }
+}
+
+/* When band has a real product photo — auto height, full image visible */
+.menu-card-band.has-photo {
+  height: auto !important;
+}
+
+.menu-card .menu-card-photo {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  background: #f5f5f5;
+  border-bottom: var(--border);
 }
 
 .menu-card .menu-card-logo {
