@@ -24,7 +24,7 @@ async function getFeaturedItems() {
 
     const catMap = new Map(cats.map((c: any) => [c.id, c]))
 
-    return items.slice(0, 3).map((item: any) => {
+    return items.map((item: any) => {
       const cat = catMap.get(item.categoryId) as any
       return {
         id: item.id,
