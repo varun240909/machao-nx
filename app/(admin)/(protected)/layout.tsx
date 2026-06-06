@@ -42,7 +42,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               letterSpacing: "1px",
             }}
           >
-            Machao NX &mdash; Admin
+            Machao &mdash; Admin
           </span>
         </div>
 

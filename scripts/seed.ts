@@ -1,5 +1,7 @@
 import dotenv from "dotenv"
 dotenv.config({ path: ".env.local" })
+import dns from "dns"
+dns.setServers(["8.8.8.8", "1.1.1.1"])
 import mongoose from "mongoose"
 import { menuCategories } from "../data/menu"
 
@@ -17,7 +19,7 @@ const Category = mongoose.models.Category || mongoose.model("Category", Category
 const MenuItem = mongoose.models.MenuItem || mongoose.model("MenuItem", MenuItemSchema)
 
 async function seed() {
-  await mongoose.connect(MONGO_URL, { bufferCommands: false })
+  await mongoose.connect(MONGO_URL, { bufferCommands: false, family: 4 })
   console.log("Connected to MongoDB")
 
   await Category.deleteMany({})

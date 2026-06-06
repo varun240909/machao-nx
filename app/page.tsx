@@ -4,21 +4,24 @@ import MenuCard from "@/components/menu/MenuCard"
 
 export const revalidate = 60
 
+const BASE_URL = process.env.NEXTAUTH_URL ?? "http://localhost:3000"
+
 async function getFeaturedItems() {
   try {
-    const { connectDB } = await import("@/lib/db")
-    const { MenuItemModel } = await import("@/lib/models/MenuItem")
-    const { CategoryModel } = await import("@/lib/models/Category")
-
-    await connectDB()
-    const [items, cats] = await Promise.all([
-      MenuItemModel.find({ isFeatured: true }).lean(),
-      CategoryModel.find().lean(),
+    const [itemsRes, catsRes] = await Promise.all([
+      fetch(`${BASE_URL}/api/products?featured=true`, { next: { revalidate: 60 } }),
+      fetch(`${BASE_URL}/api/categories`, { next: { revalidate: 60 } }),
     ])
 
-    if (!items.length) return staticFeatured
+    if (!itemsRes.ok || !catsRes.ok) return staticFeatured
+
+    const items = await itemsRes.json()
+    const cats = await catsRes.json()
+
+    if (!Array.isArray(items) || items.length === 0) return staticFeatured
 
     const catMap = new Map(cats.map((c: any) => [c.id, c]))
+
     return items.slice(0, 3).map((item: any) => {
       const cat = catMap.get(item.categoryId) as any
       return {
@@ -79,7 +82,7 @@ export default async function Home() {
           <div className="hero-img">
             <img
               src="https://res.cloudinary.com/dozdgvgbt/image/upload/v1780659351/ChatGPT_Image_Jun_5_2026_04_59_24_PM_dvyx1a.png"
-              alt="Machao NX food"
+              alt="Machao food"
               className="hero-img-photo"
             />
             <div className="sticker">
@@ -137,7 +140,7 @@ export default async function Home() {
 
         <section className="section-padding">
           <h2 className="section-title" style={{ marginBottom: "40px", textAlign: "center" }}>
-            @MACHAO.NX
+            @MACHAO Cloud Vision
           </h2>
           <div className="social-grid">
             <div className="social-item">

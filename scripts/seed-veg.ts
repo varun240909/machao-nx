@@ -1,5 +1,7 @@
 import dotenv from "dotenv"
 dotenv.config({ path: ".env.local" })
+import dns from "dns"
+dns.setServers(["8.8.8.8", "1.1.1.1"])
 import mongoose from "mongoose"
 
 const MONGO_URL = process.env.NEXT_MONGO_URL!
@@ -163,7 +165,7 @@ const vegCategories: CatData[] = [
 // ---------------------------------------------------------------------------
 
 async function seedVeg() {
-  await mongoose.connect(MONGO_URL, { bufferCommands: false })
+  await mongoose.connect(MONGO_URL, { bufferCommands: false, family: 4 })
   console.log("Connected to MongoDB")
 
   let catUpserted = 0

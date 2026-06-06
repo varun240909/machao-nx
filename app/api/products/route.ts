@@ -11,9 +11,12 @@ export async function GET(req: NextRequest) {
     const categoryId = searchParams.get("categoryId")
     const search = searchParams.get("search")
 
+    const featured = searchParams.get("featured")
+
     const query: Record<string, any> = {}
     if (categoryId) query.categoryId = categoryId
     if (search) query.name = { $regex: search, $options: "i" }
+    if (featured === "true") query.isFeatured = true
 
     const items = await MenuItemModel.find(query).lean()
     return NextResponse.json(items)

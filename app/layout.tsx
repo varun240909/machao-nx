@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://machao-nx.vercel.app"),
 
   title: {
-    default: "Machao NX | Best Chinese Food in Dahisar, Mumbai",
-    template: "%s | Machao NX",
+    default: "Machao | Best Chinese Food in Dahisar, Mumbai",
+    template: "%s | Machao ",
   },
 
   description:
     "Machao Chinese Corner — Best noodles, biryani, chicken starters & more in Dahisar East, Mumbai. Fresh every day. Order on WhatsApp or visit us at Shop No 07, N L Plaza, W E Highway.",
 
   keywords: [
-    "machao nx",
+    "machao ",
     "machao chinese corner",
     "chinese food dahisar",
     "chinese food mumbai",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://machao-nx.vercel.app",
     siteName: "Machao NX",
-    title: "Machao NX | Best Chinese Food in Dahisar, Mumbai",
+    title: "Machao | Best Chinese Food in Dahisar, Mumbai",
     description:
       "Noodles, biryani, chicken starters & more. Indian flavors crafted to perfection. Fresh every day — order on WhatsApp.",
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: "https://res.cloudinary.com/dozdgvgbt/image/upload/v1780659351/ChatGPT_Image_Jun_5_2026_04_59_24_PM_dvyx1a.png",
         width: 1200,
         height: 630,
-        alt: "Machao NX — Indian Flavors, Crafted to Perfection",
+        alt: "Machao  — Indian Flavors, Crafted to Perfection",
         type: "image/png",
       },
     ],
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Machao NX | Best Chinese Food in Dahisar, Mumbai",
+    title: "Machao | Best Chinese Food in Dahisar, Mumbai",
     description:
       "Noodles, biryani, chicken starters & more. Fresh every day — order on WhatsApp.",
     images: ["https://res.cloudinary.com/dozdgvgbt/image/upload/v1780659351/ChatGPT_Image_Jun_5_2026_04_59_24_PM_dvyx1a.png"],
