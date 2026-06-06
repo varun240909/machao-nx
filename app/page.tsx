@@ -2,6 +2,7 @@ import Link from "next/link"
 import { featuredItems as staticFeatured } from "@/data/menu"
 import MenuCard from "@/components/menu/MenuCard"
 import OrderNowButton from "@/components/OrderNowButton"
+import CallModal from "@/components/CallModal"
 
 export const revalidate = 60
 
@@ -56,10 +57,7 @@ export default async function Home() {
           <Link href="/menu">Menu</Link>
           <Link href="/locations">Locations</Link>
         </nav>
-        <a href="tel:+918879701012" className="btn-cta" style={{ textDecoration: "none" }}>
-          <span className="book-table-label">Book a Table</span>
-          <span className="book-table-icon">📞</span>
-        </a>
+        <CallModal label="Book a Table" className="btn-cta" />
       </header>
 
       <main>

@@ -149,23 +149,6 @@ header .btn-cta {
   }
 }
 
-.book-table-label {
-  display: none;
-}
-
-.book-table-icon {
-  display: inline;
-  font-size: 16px;
-}
-
-@media (min-width: 768px) {
-  .book-table-label {
-    display: inline;
-  }
-  .book-table-icon {
-    display: none;
-  }
-}
 
 .btn-cta {
   background: var(--accent);
